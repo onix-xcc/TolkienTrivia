@@ -57,7 +57,7 @@ var triviaGame = {
         $("#trivia-timer").html(triviaGame.timerTime);
         if (triviaGame.timerTime === 0) {
             console.log("THE QUEST IS OVER");
-            triviaGame.done();
+            triviaGame.gameEnd();
         }
     },
 
@@ -81,7 +81,7 @@ var triviaGame = {
 
     gameEnd: function () {
 
-        $.each($("input[name='question-0'] checked"), function () {
+        $.each($("input[name='question-0']:checked"), function () {
             if ($(this).val() === triviaQuestions[0].correctAnswer) {
                 triviaGame.rightAnswers++;
             } else {
@@ -89,7 +89,7 @@ var triviaGame = {
             }
         });
 
-        $.each($("input[name='question-1'] checked"), function () {
+        $.each($("input[name='question-1']:checked"), function () {
             if ($(this).val() === triviaQuestions[1].correctAnswer) {
                 triviaGame.rightAnswers++;
             } else {
@@ -177,9 +177,23 @@ var triviaGame = {
 
         clearInterval(countdownTimer);
 
-        
-    }
-)
+        $("#timerDiv h2").remove();
 
+        gameBoard.html("<h2>The Quest is over!</h2>");
+        gameBoard.append("<h3> Correct Answers: " + this.rightAnswers + "</h3>");
+        gameBoard.append("<h3> Wrong Answers: " + this.wrongAnswers + "</h3>");
+        gameBoard.append("<h3>Unanswered: " + (triviaQuestions.length - (this.wrongAnswers + this.rightAnswers)) + "</h3>");
+    }
+};
+
+// GAME START AND FINISH CLICK EVENTS
+
+$(document).on("click", "#gameStart", function () {
+    triviaGame.start();
+});
+
+$(document).on("click", "#gameEnd", function () {
+    triviaGame.gameEnd();
+});
 
 
