@@ -70,8 +70,8 @@ var triviaGame = {
 
         for (var i = 0; i < triviaQuestions.length; i++) {
             gameBoard.append("<h2>" + triviaQuestions[i].question + "</h2>");
-            for (var j = 0; j < triviaQuestions[i].choices.length; j++) {
-                gameBoard.append("<input type='radio' name='question-" + i + "' value='" + triviaQuestions[i].choices[j] + "''>" + triviaQuestions[i].choices[j]);
+            for (var ans = 0; ans < triviaQuestions[i].choices.length; ans++) {
+                gameBoard.append("<input type='radio' id='ansChoice' name='question-" + i + "' value='" + triviaQuestions[i].choices[ans] + "''>" + triviaQuestions[i].choices[ans]);
             }
         }
 
@@ -172,6 +172,8 @@ var triviaGame = {
 
     },
 
+
+// LAST SCREEN
     endResult: function() {
 
         clearInterval(countdownTimer);
@@ -179,9 +181,11 @@ var triviaGame = {
         $("#timerDiv h2").remove();
 
         gameBoard.html("<h2>The Quest is over!</h2>");
+        gameBoard.append("<img src='assets/images/itsDone.gif' alt='It's done.>")
         gameBoard.append("<h3> Correct Answers: " + this.rightAnswers + "</h3>");
         gameBoard.append("<h3> Wrong Answers: " + this.wrongAnswers + "</h3>");
         gameBoard.append("<h3>Unanswered: " + (triviaQuestions.length - (this.wrongAnswers + this.rightAnswers)) + "</h3>");
+     
     }
 };
 
