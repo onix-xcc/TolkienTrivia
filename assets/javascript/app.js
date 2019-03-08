@@ -70,9 +70,8 @@ var triviaGame = {
 
         for (var i = 0; i < triviaQuestions.length; i++) {
             gameBoard.append("<h2>" + triviaQuestions[i].question + "</h2>");
-            for (var ans = 0; ans < triviaQuestions[i].choices.length; ans++); {
-                gameBoard.append("<input type='radio' name='question-" + i +
-                    "' value='" + triviaQuestions[i].choices[ans] + "''>" + triviaQuestions[i].choices[ans]);
+            for (var j = 0; j < triviaQuestions[i].choices.length; j++) {
+                gameBoard.append("<input type='radio' name='question-" + i + "' value='" + triviaQuestions[i].choices[j] + "''>" + triviaQuestions[i].choices[j]);
             }
         }
 
@@ -97,7 +96,7 @@ var triviaGame = {
             }
         });
 
-        $.each($("input[name='question-2'] checked"), function () {
+        $.each($("input[name='question-2']:checked"), function () {
             if ($(this).val() === triviaQuestions[2].correctAnswer) {
                 triviaGame.rightAnswers++;
             } else {
@@ -105,7 +104,7 @@ var triviaGame = {
             }
         });
 
-        $.each($("input[name='question-3'] checked"), function () {
+        $.each($("input[name='question-3']:checked"), function () {
             if ($(this).val() === triviaQuestions[3].correctAnswer) {
                 triviaGame.rightAnswers++;
             } else {
@@ -113,7 +112,7 @@ var triviaGame = {
             }
         });
 
-        $.each($("input[name='question-4'] checked"), function () {
+        $.each($("input[name='question-4']:checked"), function () {
             if ($(this).val() === triviaQuestions[4].correctAnswer) {
                 triviaGame.rightAnswers++;
             } else {
@@ -121,7 +120,7 @@ var triviaGame = {
             }
         });
 
-        $.each($("input[name='question-5'] checked"), function () {
+        $.each($("input[name='question-5']:checked"), function () {
             if ($(this).val() === triviaQuestions[5].correctAnswer) {
                 triviaGame.rightAnswers++;
             } else {
@@ -129,7 +128,7 @@ var triviaGame = {
             }
         });
 
-        $.each($("input[name='question-6'] checked"), function () {
+        $.each($("input[name='question-6']:checked"), function () {
             if ($(this).val() === triviaQuestions[6].correctAnswer) {
                 triviaGame.rightAnswers++;
             } else {
@@ -137,7 +136,7 @@ var triviaGame = {
             }
         });
 
-        $.each($("input[name='question-7'] checked"), function () {
+        $.each($("input[name='question-7']:checked"), function () {
             if ($(this).val() === triviaQuestions[7].correctAnswer) {
                 triviaGame.rightAnswers++;
             } else {
@@ -145,7 +144,7 @@ var triviaGame = {
             }
         }); 
 
-        $.each($("input[name='question-8'] checked"), function () {
+        $.each($("input[name='question-8']:checked"), function () {
             if ($(this).val() === triviaQuestions[8].correctAnswer) {
                 triviaGame.rightAnswers++;
             } else {
@@ -153,7 +152,7 @@ var triviaGame = {
             }
         });
 
-        $.each($("input[name='question-9'] checked"), function () {
+        $.each($("input[name='question-9']:checked"), function () {
             if ($(this).val() === triviaQuestions[9].correctAnswer) {
                 triviaGame.rightAnswers++;
             } else {
@@ -161,7 +160,7 @@ var triviaGame = {
             }
         });
 
-        $.each($("input[name='question-10'] checked"), function () {
+        $.each($("input[name='question-10']:checked"), function () {
             if ($(this).val() === triviaQuestions[10].correctAnswer) {
                 triviaGame.rightAnswers++;
             } else {
